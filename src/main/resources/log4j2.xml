@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="MyApp" packages="">
+    
+    <Properties>
+        <Property name="diretorio">C:/Users/ariane/Desktop/projetoSpringSecurity/logs/</property>
+        <Property name="logName" >angularComSecurity.log</property>
+    </Properties>
+    
+  <Appenders>
+    <RollingFile name="RollingFile" fileName="${diretorio}/${logName}"
+                 filePattern="${diretorio}/${logName}-%d{dd-MM-yyyy}-%i.log.gz">
+        <PatternLayout>
+            <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+        </PatternLayout>
+        <Policies>
+            <TimeBasedTriggeringPolicy />
+            <SizeBasedTriggeringPolicy size="250 MB"/>
+        </Policies>
+        <DefaultRolloverStrategy max="20"/>
+    </RollingFile>
+    
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>    
+  </Appenders>
+  
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="RollingFile"/>
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+  </Loggers>
+</Configuration>
