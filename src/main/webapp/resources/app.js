@@ -17,6 +17,9 @@ sampleApp.config(['$routeProvider',
 		templateUrl: 'show_order.html',
 		controller: 'ShowOrdersController'
       }).
+      when('/', {
+		redirectTo: '/AddNewOrder'
+      }).
       otherwise({
 		redirectTo: '/AddNewOrder'
       });

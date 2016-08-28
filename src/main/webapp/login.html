@@ -11,9 +11,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
-        <script src="resources/app.js"></script>
+<!--        <script src="resources/app.js"></script>
         <script src="resources/loginController.js"></script>
-        
+        -->
         
         
         <style type="text/css">
@@ -124,7 +124,9 @@
     </head>
     <body>
         
-        <div class="login-page" ng-controller="loginController">
+        <div class="login-page">
+            
+            
           <div class="form">
             <form class="register-form">
               <input type="text" placeholder="name"/>
@@ -133,12 +135,14 @@
               <button>create</button>
               <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
-            <form class="login-form" >
-              <input type="text" placeholder="username"/>
-              <input type="password" placeholder="password"/>
-              <button ng-click="efetuarLogin()">login</button>
-              <p class="message">Not registered? <a href="#">Create an account</a></p>
               
+
+            <!-- Formulario de login -->
+            <form class="login-form" method="POST" action="/ProjetoAngularComSpringSecurity/login"  >
+                <input type="text" placeholder="username" id="username" name="username"/>
+                <input type="password" placeholder="password" id="password" name="password"/>
+                <button type="submit" class="btn">Log in</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
               
             </form>
           </div>
